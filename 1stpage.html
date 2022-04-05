@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="profile.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>GREENSTORE</title>
+    <link rel="icon" href="trolley.gif">
+</head>
+
+<body>
+
+    <div class="alert alert-warning alert-dismissible fade show" style="margin-bottom: 0px; background-color: hsla(56, 100%, 50%, 0.2);" role="alert">
+        <strong>Holy guacamole!</strong> Enjoy shopping in
+        <p1 style="color:#659A41; ">GREEN
+            <p2 style="color:#91C11E ">STORE</p2>
+        </p1>
+        <button type="button" class="close" style="margin-left: 73%;" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" >&times;</span>
+        </button>
+    </div>
+
+    <nav class="navbar navbar-expand navbar-light ">
+        <a class="navbar-brand ">
+            <h1 style="color:#659A41; ">GREEN
+                <p2 style="color:#91C11E ">STORE</p2>
+            </h1>
+        </a>
+        <div class="collapse navbar-collapse " id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" style="color: rgb(226, 147, 1); text-transform: uppercase;" href="mainpage.php">Home</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " style="color:orange; text-transform: uppercase;" href="productview.php">&nbsp;Product</a>
+                </li>
+        </div>
+        <a class="nav-link" style="color: rgb(226, 147, 1); text-transform: uppercase; " href="login.php">Login/Register</a>
+        <button class="btn btn-outline-secondary text-center" onclick=" window.location.href='adminlogin.php' " style="color: black; width: 75px; ">ADMIN</button>
+
+    </nav><br>
+
+    <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="3000">
+                        <img src="1.jpg" class="d-block w-100" alt="GREENSTORE">
+                    </div>
+                    <div class="carousel-item" data-interval="3000 ">
+                        <img src="3.jpg" class="d-block w-100" alt="GREENSTORE">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="2.jpg" class="d-block w-100" alt="GREENSTORE">
+                    </div>
+                    <div class="carousel-item" data-interval="3000">
+                        <img src="6.jpg" class="d-block w-100" alt="GREENSTORE">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <p class="text-center" style="background-image: radial-gradient(#91C11E,#659A41); padding: 50px; color: white; font-family: 'Alegreya', serif; font-size: 30px;">"Green Store is not a store itself, but rather personal shoppers that will pick your groceries for you.<br> We allow ordering up to two weeks in advance. Groceries are fresh produce groceries directly<br> from local farmers and entrepreneurs to keep
+        the chain sustainability going"</p>
+    <div class="container-fluid"><br>
+        <div class="row" style="margin-left: 5%;">
+            <div class="col-sm-4">
+                <div style="width: 18rem;background-color: rgb(239, 239, 253);">
+                    <img src="lock.gif" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-center"><strong>Safe & Secure</strong><br> When you buy online, you want to know that you're buying from a trusted seller. Our entire website is fully secure, ensuring that your personal information is kept safe when you buy from us. You
+                            can tell this from the padlock showing in the URL bar of your browser. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div style="width: 18rem;background-color: rgb(212, 236, 245);padding-bottom: 2%;">
+                    <img src="pay.gif" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-center"><strong>Payment Options</strong><br> We work hard to make shopping with us as easy as possible for our customers. That's why we have multiple options for payment. We accept all major credit cards (including American Express through
+                            Paypal). You can also checkout with Paypal or Apple Pay. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div style="width: 18rem; background-color: rgb(239, 239, 253);">
+                    <img src="customer.gif" class="card-img-top">
+                    <div class="card-body">
+                        <p class="card-text text-center"><strong>Award Winning Customer Service</strong><br> We are extremely proud of our award winning customer service, with staff who go beyond for our customers. The high number of extremely positive reviews that we have as a business
+                            are a testament to our customers continue to rate us incredibly high for our service. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-1" style="padding: 50px">
+        <div class="col-sm-4">
+            <p class="text-center" style="color:#659A41;font-size:30px;">Browse through the world of finest groceries.</p>
+            <p class="text-center" style="color:#91C11E;font-size:30px;">Market fresh, more value.</p>
+            <a href="productview.php" class="btn " style="margin-top: 25px; margin-left: 35%; background-color: orange; color: black;">Check Out Now</a>
+        </div>
+        <div class=" col-4">
+            <img src="grocery.png " alt="Grocery ">
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-fluid">
+            <div class=" row ">
+
+                <div class="col-sm ">
+                    <div class="footer-widget ">
+                        <h2 class="widget-title ">About</h2>
+                        <p>Green Store helps you to manage grocery shopping list before going to the store to buy the products. HAPPY SHOPPING PEEPS!</p>
+                        <h2 class="widget-title ">Stay Connected</h2>
+                        <div class="social-widget ">
+                            <a href="www.facebook.com "><i class="fa fa-facebook-square "></i></a>
+                            <a href="www.googleplus.com "><i class="fa fa-google-plus-square "></i></a>
+                            <a href="www.instagram.com "><i class="fa fa-instagram "></i></a>
+                            <a href="www.twitter.com "><i class="fa fa-twitter "></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm categories-widget ">
+                    <div class="footer-widget ">
+                        <h2 class="widget-title ">Categories</h2>
+                        <ul>
+                            <li><a href="product.html ">Fruits</a></li>
+                            <li><a href="product.html ">Vegetables</a></li>
+                            <li><a href="product.html ">Beverages</a></li>
+                            <li><a href="product.html ">Chocolates & Snacks</a></li>
+                            <li><a href="product.html ">Bread & Bakery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm informations-widget ">
+                    <div class="footer-widget ">
+                        <h2 class="widget-title ">Informations</h2>
+                        <ul>
+                            <li><a href="# ">About Us</a></li>
+                            <li><a href="# ">Contact Us</a></li>
+                            <li><a href="# ">Help & FAQs</a></li>
+                            <li><a href="# ">Terms & Conditions</a></li>
+                            <li><a href="# ">Private Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm ">
+                    <div class="footer-widget contact-widget ">
+                        <h2 class="widget-title ">Contact</h2>
+
+                        <div class="contact-address ">
+                            <i class="fa fa-map-marker "></i> Address : Jalan 6/95B, Cheras Utama, 56100 Kuala Lumpur, Malaysia
+                        </div>
+
+                        <div class="contact-number ">
+                            <i class="fa fa-phone-square "></i> Phone : 1300-800-600
+                        </div>
+
+                        <div class="contact-email ">
+                            <i class="fa fa-envelope "></i> Email : greenstore@gmail.com
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="copyright ">
+            <div class="container ">
+                <p>Copyright &copy; 2021. GREEN STORE. All Rights Reserved </p>
+
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
