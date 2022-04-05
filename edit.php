@@ -1,0 +1,412 @@
+<?php
+	//Example - MySQLi
+	//Step 1. Connect to the database.
+	//Step 2. Handle connection errors
+	// including the database connection file
+	include_once("config.php");
+	include_once("component.php");
+
+	if(isset($_POST["Edit"]))
+	{	
+		//The mysqli_real_escape_string() function escapes special characters in a string for use in an SQL statement.
+		$productname = mysqli_real_escape_string($mysqli, $_POST['product_name']);
+		$productprice = mysqli_real_escape_string($mysqli, $_POST['product_price']);
+		$productdesc = mysqli_real_escape_string($mysqli, $_POST['product_desc']);
+		$productimage = mysqli_real_escape_string($mysqli, $_POST['product_image']);
+        $productcategory = mysqli_real_escape_string($mysqli, $_POST['product_category']);	
+		
+		// checking empty fields
+		if(empty($productname) || empty($productprice) || empty($productdesc) || empty($productimage)) {
+					
+			echo "<script>alert('Product Information is Incomplete!');</script>";
+			
+			//link to the previous page
+			// echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+		} else { 	
+			//Step 3. Execute the SQL query.
+			//updating the table
+            if($productcategory == 'fruits'){
+                $result = mysqli_query($mysqli, "UPDATE fruits SET fruit_name='$productname', fruit_price='$productprice', fruit_desc='$productdesc', fruit_image='$productimage' WHERE fruit_id=$id");
+            }
+
+            if($productcategory == 'vegetables'){
+                $result = mysqli_query($mysqli, "UPDATE vegetables SET veg_name='$productname', veg_price='$productprice', veg_desc='$productdesc', veg_image='$productimage' WHERE veg_id=$id");
+            }
+
+            if($productcategory == 'seafood'){
+                $result = mysqli_query($mysqli, "UPDATE seafood SET sf_name='$productname', sf_price='$productprice', sf_desc='$productdesc', sf_image='$productimage' WHERE sf_id=$id");
+            }
+
+            if($productcategory == 'snacks'){
+                $result = mysqli_query($mysqli, "UPDATE snacks SET snack_name='$productname', snack_price='$productprice', snack_desc='$productdesc', snack_image='$productimage' WHERE snack_id=$id");
+            }
+
+            if($productcategory == 'rice'){
+                $result = mysqli_query($mysqli, "UPDATE rice SET rice_name='$productname', rice_price='$productprice', rice_desc='$productdesc', rice_image='$productimage' WHERE rice_id=$id");
+            }
+
+            if($productcategory == 'can'){
+                $result = mysqli_query($mysqli, "UPDATE can SET can_name='$productname', can_price='$productprice', can_desc='$productdesc', can_image='$productimage' WHERE can_id=$id");
+            }
+            
+			
+			//redirectig to the display page. In our case, it is index.php
+			header("Location:admin.php");
+			
+			//Step 5: Freeing Resources and Closing Connection using mysqli
+			mysqli_close($mysqli);
+		}
+	}
+?>
+
+<?php
+//getting id from url
+$id = $_GET['id'];
+
+//selecting data associated with this particular id
+$result1 = mysqli_query($mysqli, "SELECT * FROM fruits WHERE fruit_id=$id");
+$result2 = mysqli_query($mysqli, "SELECT * FROM vegetables WHERE veg_id=$id");
+$result3 = mysqli_query($mysqli, "SELECT * FROM seafood WHERE sf_id=$id");
+$result4 = mysqli_query($mysqli, "SELECT * FROM snacks WHERE snack_id=$id");
+$result5 = mysqli_query($mysqli, "SELECT * FROM rice WHERE rice_id=$id");
+$result6 = mysqli_query($mysqli, "SELECT * FROM can WHERE can_id=$id");
+
+while($res = mysqli_fetch_array($result1))
+{
+	$productname = $res['fruit_name'];
+	$productprice = $res['fruit_price'];
+	$productdesc = $res['fruit_desc'];
+	$productimage = $res['fruit_image'];
+}
+
+while($res = mysqli_fetch_array($result2))
+{
+	$productname = $res['veg_name'];
+	$productprice = $res['veg_price'];
+	$productdesc = $res['veg_desc'];
+	$productimage = $res['veg_image'];
+}
+
+ while($res = mysqli_fetch_array($result3))
+{
+	$productname = $res['sf_name'];
+	$productprice = $res['sf_price'];
+	$productdesc = $res['sf_desc'];
+	$productimage = $res['sf_image'];
+}
+
+while($res = mysqli_fetch_array($result4))
+{
+	$productname = $res['snack_name'];
+	$productprice = $res['snack_price'];
+	$productdesc = $res['snack_desc'];
+	$productimage = $res['snack_image'];
+}
+
+ while($res = mysqli_fetch_array($result5))
+{
+	$productname = $res['rice_name'];
+	$productprice = $res['rice_price'];
+	$productdesc = $res['rice_desc'];
+	$productimage = $res['rice_image'];
+}
+
+while($res = mysqli_fetch_array($result6))
+{
+	$productname = $res['can_name'];
+	$productprice = $res['can_price'];
+	$productdesc = $res['can_desc'];
+	$productimage = $res['can_image'];
+}
+
+?>
+
+<?php
+//Example - MySQLi
+//Step 1. Connect to the database.
+//Step 2. Handle connection errors
+//including the database connection file
+include_once("config.php");
+include_once("component.php");
+
+//$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is deprecated
+//3. Execute the SQL query.
+$result1 = mysqli_query($mysqli, "SELECT * FROM fruits"); // using mysqli_query instead
+$result2 = mysqli_query($mysqli, "SELECT * FROM vegetables"); // using mysqli_query instead
+$result3 = mysqli_query($mysqli, "SELECT * FROM seafood"); // using mysqli_query instead
+$result4 = mysqli_query($mysqli, "SELECT * FROM snacks"); // using mysqli_query instead
+$result5 = mysqli_query($mysqli, "SELECT * FROM rice"); // using mysqli_query instead
+$result6 = mysqli_query($mysqli, "SELECT * FROM can"); // using mysqli_query instead
+?>
+
+<html>
+<head>	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>GREENSTORE-ADMIN</title>
+    <link rel="icon" href="trolley.gif">
+    <style>
+        body {
+            font-family: 'PT Sans', sans-serif;
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        nav {
+            flex: 1;
+            text-align: right;
+        }
+        
+        nav ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        .nav-item:hover {
+            color: #91C11E;
+        }
+        
+        .nav-link:hover {
+            color: #91C11E;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #FFAD00;
+        }
+        
+        p {
+            color: #FFAD00;
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        
+        .dropdown-menu {
+            background-color: #FFAD00;
+        }
+        
+        .dropdown-menu .dropdown-item {
+            color: white;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        .icon {
+            text-decoration: none;
+            font-size: 40px;
+            color: black;
+        }
+        
+        .row .col-1 {
+            min-width: 1000px;
+        }
+        
+        .row .col-2 {
+            min-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand navbar-light ">
+        <a class="navbar-brand ">
+            <h1 style="color:#659A41; ">GREEN
+                <p2 style="color:#91C11E ">STORE</p2>
+            </h1>
+        </a>
+        <a href="logout1.php" class="btn btn-danger" style="text-align:right;">LOGOUT</a>
+
+    </nav>
+	<div class="container-fluid">
+        <div class="row">
+            <div class="col-1">
+                <table id="productTable" class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Edit</th>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+
+					<?php
+					//Step 4. Process the results from admin.php (insert new data)
+					//while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to use mysqli_fetch_array 
+                        while($res = mysqli_fetch_array($result1)){
+                            productrow($res['fruit_id'], $res['fruit_name'], $res['fruit_price'], $res['fruit_desc'], $res['fruit_image']);
+                        }
+    
+                        while($res = mysqli_fetch_array($result2)){
+                            productrow($res['veg_id'], $res['veg_name'], $res['veg_price'], $res['veg_desc'], $res['veg_image']);
+                        }
+
+                        while($res = mysqli_fetch_array($result3)){
+                            productrow($res['sf_id'], $res['sf_name'], $res['sf_price'], $res['sf_desc'], $res['sf_image']);
+                        }
+
+                        while($res = mysqli_fetch_array($result4)){
+                            productrow($res['snack_id'], $res['snack_name'], $res['snack_price'], $res['snack_desc'], $res['snack_image']);
+                        }
+
+                        while($res = mysqli_fetch_array($result5)){
+                            productrow($res['rice_id'], $res['rice_name'], $res['rice_price'], $res['rice_desc'], $res['rice_image']);
+                        }
+
+                        while($res = mysqli_fetch_array($result6)){
+                            productrow($res['can_id'], $res['can_name'], $res['can_price'], $res['can_desc'], $res['can_image']);             }
+                        
+
+					//Step 5: Freeing Resources and Closing Connection using mysqli
+					// mysqli_close($mysqli);
+					?>
+
+                </table>
+            </div>
+            <div class="col-2">
+                <div class="panel panel-primary" style="margin-bottom: 10px; border-color:#659A41;">
+                    <div class="panel-heading" style="background-color: #659A41; color: white; padding: 10px; border-color:#659A41;">
+                        Product Information
+                    </div>
+                    <form action="edit.php" method="post">
+                    <div class="panel-body" style="margin: 10px;">
+                        <div class="form-group">
+                            <label for="productimg">Product image: </label>
+                            <input type="text" name="product_image" value="<?php echo $productimage;?>" class="form-control" id="productimg" />
+                        </div>
+                        <div class="form-group">
+                            <label for="productname">Product Name: </label>
+                            <input type="text" name="product_name" value="<?php echo $productname;?>" class="form-control" id="productname" />
+                        </div>
+                        <div class="form-group">
+                            <label for="productdes">Product Description: </label>
+                            <input type="text" name="product_desc" value="<?php echo $productdesc;?>" class="form-control " id="productdes" />
+                        </div>
+                        <div class="form-group">
+                            <label for="productprice">Product Price: </label>
+                            <input type="text" name="product_price" value="<?php echo $productprice;?>" class="form-control" id="productprice" />
+                        </div>
+                        <div class="form-group">
+                            <label for="productcategory">Product Category: </label>
+                            <select id="productcategory" name="product_category" class="form-control">
+                                <option value="fruits">Fruits</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="seafood">Seafood</option>
+                                <option value="snacks">Chocolates & Snacks</option>
+                                <option value="rice">Rice</option>
+                                <option value="can">Canned Food Items</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="background-color: rgb(255, 255, 255);border-color:#659A41;">
+                        <div class="row">
+                            <div class="col-xs-12">
+								<!-- send hidden data, id using GET method -->
+								<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
+                                <td><input type="submit" id="updateButton" value="Update" name="Update" class="btn btn-primary" style="background-color:#FFAD00; border-color: #FFAD00; margin-left: 10px;"></td>
+                            </div>
+                        </div>
+                    </div></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="admin.js"></script> -->
+
+	<footer >
+        <div class="container wrap">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="footer-widget">
+                        <h2 class="widget-title">About</h2>
+                        <p>Green Store helps you to manage grocery shopping list before going to the store to buy the products. HAPPY SHOPPING PEEPS!</p>
+                        <h2 class="widget-title">Stay Connected</h2>
+                        <div class="social-widget">
+                            <a href="www.facebook.com"><i class="fa fa-facebook-square"></i></a>
+                            <a href="www.googleplus.com"><i class="fa fa-google-plus-square"></i></a>
+                            <a href="www.instagram.com"><i class="fa fa-instagram"></i></a>
+                            <a href="www.twitter.com"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm categories-widget">
+                    <div class="footer-widget">
+                    <h2 class="widget-title">Categories</h2>
+                    <ul>
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Beverages</a></li>
+                        <li><a href="#">Chocolates & Snacks</a></li>
+                        <li><a href="#">Bread & Bakery</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-sm informations-widget">
+                    <div class="footer-widget">
+                    <h2 class="widget-title">Informations</h2>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Private Policy</a></li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="footer-widget contact-widget">
+                    <h2 class="widget-title">Contact</h2>
+                    <div class="contact-address">
+                        <i class="fa fa-map-marker"></i> Address : Jalan 6/95B, Cheras Utama, 56100 Kuala Lumpur, Malaysia
+                    </div>
+                    <div class="contact-number">
+                        <i class="fa fa-phone-square"></i> Phone : 1300-800-600
+                    </div>
+                    <div class="contact-email">
+                        <i class="fa fa-envelope"></i> Email : greenstore@gmail.com
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>Copyright &copy; 2021. GREEN STORE. All Rights Reserved </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

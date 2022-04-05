@@ -1,0 +1,116 @@
+footer {
+    background-color: rgb(103, 141, 0);
+    color: rgb(250, 249, 249);
+    /* height: 50vh; */
+    margin-bottom: 10px;
+}
+
+.footer-widget {
+    /* background-color: chartreuse;  */
+    margin: 5px 5px 20px;
+    text-align: justify;
+    margin-left: 0px;
+}
+
+.widget-title {
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.about-widget p {
+    line-height: 20px;
+    margin: 10px 0 30px 0;
+}
+
+.cards {
+    display: inline-block;
+    font-size: 50px;
+    margin-right: 12px;
+}
+
+.about-widget p span {
+    margin-right: 10px;
+}
+
+.categories-widget,
+.informations-widget,
+.contact-widget {
+    margin-left: 70px;
+    margin-right: 0px;
+}
+
+.footer-widget ul {
+    margin-left: 0px;
+}
+
+.footer-widget ul li {
+    padding-bottom: 14px;
+}
+
+.footer-widget ul li a {
+    color: rgb(219, 255, 172);
+    text-decoration: none;
+    margin-left: 0%;
+}
+
+.footer-widget ul li a:hover {
+    color: rgb(211, 210, 206);
+    margin-left: 10px;
+    transition: all 0.5s ease;
+}
+
+.contact-address {
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    line-height: 20px;
+}
+
+.contact-number,
+.contact-email {
+    margin: 10px 0;
+}
+
+.contact-number,
+.contact-address,
+.contact-email {
+    margin-right: 20px;
+}
+
+.contact-number,
+.contact-email {
+    width: 240px;
+}
+
+.social-widget {
+    display: inline-block;
+    font-size: 40px;
+    color: rgb(60, 124, 0);
+    margin-right: 0px;
+}
+
+.social-widget a {
+    color: rgb(226, 243, 212);
+    margin-top: 0px;
+}
+
+.social-widget a:hover {
+    color: rgb(211, 210, 206);
+    margin-left: 10px;
+    transition: all 0.5s ease;
+}
+
+.copyright {
+    background-color: rgb(56, 90, 0);
+    padding: 20px;
+}
+
+.copyright p {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.copyright p a {
+    text-decoration: none;
+}
